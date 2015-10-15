@@ -4,7 +4,7 @@
   "description": "Javascript export of data-validation, to use the library in standard front-end applications.",
   "main": "dist/data-validation.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp tsd typescript test"
   },
   "repository": {
     "type": "git",
