@@ -4,4 +4,4 @@ typings
 npm-debug.log
 *.js.map
 src/**/*.js
-test/**/*.js
+tests/**/*.js
