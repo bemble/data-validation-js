@@ -1,0 +1,25 @@
+{
+  "name": "data-validation-js",
+  "description": "Javascript export of data-validation, to use the library in standard front-end applications.",
+  "main": "dist/data-validation.js",
+  "authors": [
+    "Pierre CLEMENT <pierre@clement.re> (http://www.pierre-clement.info)"
+  ],
+  "license": "LGPL-3.0",
+  "keywords": [
+    "data-validation",
+    "validation",
+    "rules"
+  ],
+  "homepage": "https://github.com/pierrecle/data-validation-js",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
