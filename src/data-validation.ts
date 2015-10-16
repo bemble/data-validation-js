@@ -1,3 +1,5 @@
 /// <reference path="../typings/tsd.d.ts"/>
 
-(<any>window).DataValidation = require('data-validation');
+((context:any) => {
+  context.DataValidation = require('data-validation');
+})(typeof window !== 'undefined' ? window : exports);

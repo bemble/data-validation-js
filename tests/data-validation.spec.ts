@@ -3,12 +3,11 @@
 import chai = require('chai');
 var expect = chai.expect;
 
-(<any>global).window = {};
-require('../src/data-validation');
+var context = require('../src/data-validation');
 
 describe('data-validation', () => {
 
   it('expose data in the context', () => {
-    expect((<any>window).DataValidation).to.not.be.undefined;
+    expect(context.DataValidation).to.not.be.undefined;
   });
 });

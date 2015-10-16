@@ -226,6 +226,8 @@ exports.Validator = Validator;
 
 },{"./RulesCollection":5,"./ValidationRule":6}],8:[function(require,module,exports){
 /// <reference path="../typings/tsd.d.ts"/>
-window.DataValidation = require('data-validation');
+(function (context) {
+    context.DataValidation = require('data-validation');
+})(typeof window !== 'undefined' ? window : exports);
 
 },{"data-validation":1}]},{},[8]);

@@ -6,6 +6,7 @@ var gulp = require('gulp');
 gulp.task('tsd', tsdTask);
 gulp.task('test', testTask);
 gulp.task('typescript', typescriptTask);
+gulp.task('build:clean', buildCleanTask);
 gulp.task('build:test', ['typescript'], buildTestTask);
 gulp.task('build:lib', buildLibTask);
 gulp.task('build:changelog', buildChangelogTask);
@@ -34,6 +35,7 @@ var rename = require("gulp-rename");
 var runSequence = require('run-sequence');
 var gutil = require('gulp-util');
 var git = require('gulp-git');
+var del = require('del');
 
 
 //--------------------------------------------------
@@ -63,17 +65,23 @@ function testTask(done) {
 typescriptTask.description = "Transpile Typescript files";
 var tsProject = ts.createProject('tsconfig.json');
 function typescriptTask() {
+  var tsProject = ts.createProject('tsconfig.json', {declaration: true});
   return tsProject.src()
   .pipe(changed('.', {extension: '.js'}))
   .pipe(sourcemaps.init())
   .pipe(ts(tsProject)).js
-  .pipe(sourcemaps.write('.'))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('./'));
 };
 
 /*
 * Build tasks
 */
+buildCleanTask.description = "Clean build dir";
+function buildCleanTask() {
+  return del(['./dist']);
+};
+
 buildTypescriptTask.description = "Build Typescript files";
 function buildTypescriptTask() {
   return gulp.src(['./src/**/*.ts'], {base: './src'})
@@ -132,7 +140,7 @@ function buildChangelogTask() {
 buildTask.description = "Build the package";
 function buildTask(done) {
   runSequence(
-    'build:test', 'build:lib', 'build:changelog',
+    'build:clean', 'build:test', 'build:lib', 'build:changelog',
     function (error) {
       done(error ? new gutil.PluginError('build', error.message, {showStack: false}) : undefined);
     }
