@@ -4,16 +4,19 @@
  * Licence LGPL-3.0
  */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var Validator_1 = require('./lib/Validator');
-exports.Validator = Validator_1.Validator;
-var RulesCollection_1 = require('./lib/RulesCollection');
-exports.RulesCollection = RulesCollection_1.RulesCollection;
-var ValidationRule_1 = require('./lib/ValidationRule');
-exports.ValidationRule = ValidationRule_1.ValidationRule;
-var Rule_1 = require('./lib/Rule');
-exports.Rule = Rule_1.Rule;
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require('./lib/Validator'));
+__export(require('./lib/RulesCollection'));
+__export(require('./lib/ValidationRule'));
+__export(require('./lib/Rule'));
+__export(require('./lib/IValidationConfiguration'));
 
-},{"./lib/Rule":2,"./lib/RulesCollection":5,"./lib/ValidationRule":6,"./lib/Validator":7}],2:[function(require,module,exports){
+},{"./lib/IValidationConfiguration":2,"./lib/Rule":3,"./lib/RulesCollection":6,"./lib/ValidationRule":7,"./lib/Validator":8}],2:[function(require,module,exports){
+
+
+},{}],3:[function(require,module,exports){
 var Rule = (function () {
     function Rule() {
     }
@@ -21,7 +24,7 @@ var Rule = (function () {
 })();
 exports.Rule = Rule;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -40,7 +43,7 @@ var NotUndefinedOrNan = (function (_super) {
 })(Rule_1.Rule);
 exports.NotUndefinedOrNan = NotUndefinedOrNan;
 
-},{"../Rule":2}],4:[function(require,module,exports){
+},{"../Rule":3}],5:[function(require,module,exports){
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -63,7 +66,7 @@ var Required = (function (_super) {
 })(Rule_1.Rule);
 exports.Required = Required;
 
-},{"../Rule":2}],5:[function(require,module,exports){
+},{"../Rule":3}],6:[function(require,module,exports){
 var NotUndefinedOrNan_1 = require('./Rules/NotUndefinedOrNan');
 var Required_1 = require('./Rules/Required');
 var RulesCollection = (function () {
@@ -95,7 +98,7 @@ var RulesCollection = (function () {
 })();
 exports.RulesCollection = RulesCollection;
 
-},{"./Rules/NotUndefinedOrNan":3,"./Rules/Required":4}],6:[function(require,module,exports){
+},{"./Rules/NotUndefinedOrNan":4,"./Rules/Required":5}],7:[function(require,module,exports){
 var Rule_1 = require('./Rule');
 var RulesCollection_1 = require('./RulesCollection');
 var ValidationRule = (function () {
@@ -134,7 +137,7 @@ var ValidationRule = (function () {
 })();
 exports.ValidationRule = ValidationRule;
 
-},{"./Rule":2,"./RulesCollection":5}],7:[function(require,module,exports){
+},{"./Rule":3,"./RulesCollection":6}],8:[function(require,module,exports){
 var RulesCollection_1 = require('./RulesCollection');
 var ValidationRule_1 = require('./ValidationRule');
 var Validator = (function () {
@@ -224,10 +227,10 @@ var Validator = (function () {
 })();
 exports.Validator = Validator;
 
-},{"./RulesCollection":5,"./ValidationRule":6}],8:[function(require,module,exports){
+},{"./RulesCollection":6,"./ValidationRule":7}],9:[function(require,module,exports){
 /// <reference path="../typings/tsd.d.ts"/>
 (function (context) {
     context.DataValidation = require('data-validation');
 })(typeof window !== 'undefined' ? window : exports);
 
-},{"data-validation":1}]},{},[8]);
+},{"data-validation":1}]},{},[9]);
