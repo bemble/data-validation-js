@@ -1,9 +1,10 @@
-# data-validation
-Javascript export of data-validation, to use the library in standard front-end applications.
+# data-validation-js
+
+Javascript export of [data-validation](https://github.com/pierrecle/data-validation), to use the library in standard front-end applications.
 
 ## How it works?
 
-It only exposes the node module [data-validation](https://github.com/pierrecle/dataValidation) into `window.DataValidation`. And that's all.
+It only exposes the node module [data-validation](https://github.com/pierrecle/data-validation) into `window.DataValidation`. And that's all.
 
 ## Install
 
@@ -13,20 +14,23 @@ It only exposes the node module [data-validation](https://github.com/pierrecle/d
 
 ## Examples of usage
 
-    <html>
-        <head>
-          <title>Validation test</title>
-        <body>
-          <script src="data-validation-js/dist/data-validation.min.js"></script>
-          <script>
-            (function() {
-              var validator = new DataValidation.Validator();
-              if(validator.isValueValid(null, ['required'])) {
-                alert('null is not a valid value');
-              }
-            })();
-          </script>
-        </body>
-    </html>
+```html
+  <html>
+    <head>
+      <title>Validation test</title>
+    </head>
+    <body>
+      <script src="data-validation-js/dist/data-validation.min.js"></script>
+      <script>
+        (function() {
+          var validator = new DataValidation.Validator();
+          if(validator.isValueValid(null, ['required'])) {
+            alert('null is not a valid value');
+          }
+        })();
+      </script>
+    </body>
+  </html>
+```
 
-For more documentation, take a look at [data-validation](https://github.com/pierrecle/dataValidation), everything should be explained there.
+For more documentation, take a look at [data-validation](https://github.com/pierrecle/data-validation), everything should be explained there.
