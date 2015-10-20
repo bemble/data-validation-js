@@ -101,9 +101,9 @@ buildLibTask.description = "Build the standalone version of the module";
 function buildLibTask() {
   var buildVersion = require('./package.json');
   var nodeModuleVersion = require('./node_modules/data-validation/package.json');
-  var headerString = '/*\n * data-validation-js v.' + buildVersion.version + ', '+buildVersion.homepage;
-  headerString += '\n * data-validation v.' + nodeModuleVersion.version + ', '+nodeModuleVersion.homepage;
-  headerString += '\n * Licence ' + buildVersion.license + '\n */\n';
+  var headerString = '/*\n data-validation-js v.' + buildVersion.version + ', '+buildVersion.homepage;
+  headerString += '\n data-validation v.' + nodeModuleVersion.version + ', '+nodeModuleVersion.homepage;
+  headerString += '\n Licence ' + buildVersion.license + '\n*/\n';
 
   var b = browserify({
     entries: './src/data-validation.ts'
@@ -126,7 +126,7 @@ function buildLibTask() {
   }))
   .pipe(concat.header(headerString))
   .pipe(gulp.dest('./dist'));
-}
+};
 
 buildChangelogTask.description = "Build the changelog";
 function buildChangelogTask() {
@@ -164,7 +164,7 @@ function prepublishCheckMasterPushedTask(done){
     var message = err || (stdout.length !== 0 && "Commits are not pushed");
     done(message ? new gutil.PluginError('prepublish:checkMasterPushed', message, {showStack: false}) : undefined);
   });
-}
+};
 
 prepublishTask.description = "Run before publish to check if everyhting is fine before the publication";
 function prepublishTask(done) {
